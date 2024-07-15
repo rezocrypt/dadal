@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
 const ResoDB = require('./libs/resodb');
 
@@ -6,16 +7,24 @@ const app = express();
 const port = 3000; // Replace with your desired port number
 let ps = "asfwef22fwfw"
 
+let LogsDBEnsurement = new ResoDB('logs', ps, true, true, { 'logs': [] })
+
+
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'get.html')); // Send a response back
+});
+
 // Handle POST requests to the root URL
 app.post('/', (req, res) => {
     let LogsDB = new ResoDB('logs', ps)
     let logs = LogsDB.read();
+    console.log("+++++++", logs);
     logs['logs'].push(req.body);
     LogsDB.write(logs);
     console.log('Received POST data:', req.body);
