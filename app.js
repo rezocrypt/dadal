@@ -46,7 +46,7 @@ app.get('/9q92hhf09hq238hf082hi8h0j9/clear/:ps', (req, res) => {
     let LogsDB = new ResoDB('logs', req.params.ps)
     if (LogsDB instanceof Error) { res.send('@$@$@#'); return; }
     let logs = LogsDB.read();
-    logs["logs"] = {}
+    logs["logs"] = []
     LogsDB.write(logs);
     res.send(`done`); // Send a response back
 });
