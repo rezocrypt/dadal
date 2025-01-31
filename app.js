@@ -2,10 +2,10 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const ResoDB = require('./libs/resodb');
-// const cors = require('cors');
+const cors = require('cors');
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 const port = 3000; // Replace with your desired port number
 let ps = "asfwef22fwfw"
 
