@@ -56,9 +56,11 @@ app.get('/9q92hhf09hq238hf082hi8h0j9/clear/:ps', (req, res) => {
 // Handle POST requests to the root URL
 app.get('/kshlgkhslhowjdifi', (req, res) => {
     try{
-    res.status(200).send(`Not Found/`); // Send a response back
+        const data = {message: 'Not Found/'}
+    res.status(200).send(data); // Send a response back
     } catch(err) {
-        res.status(404).send('Succsess')
+        const data = {message: 'Succsess'}
+        res.status(404).send(data)
     }
 });
 
