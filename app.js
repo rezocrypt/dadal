@@ -51,6 +51,15 @@ app.get('/9q92hhf09hq238hf082hi8h0j9/clear/:ps', (req, res) => {
     res.send(`done`); // Send a response back
 });
 
+// Handle POST requests to the root URL
+app.get('/kshlgkhslhowjdifi', (req, res) => {
+    try{
+    res.status(200).send(`Not Found/`); // Send a response back
+    } catch(err) {
+        res.status(404).send('Succsess')
+    }
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
